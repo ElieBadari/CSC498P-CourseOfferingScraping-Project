@@ -27,3 +27,7 @@ def getCourseOfferings(login_info):
 
     chrome.find_element(by=By.CSS_SELECTOR,value='[value="Submit"]').click()
     chrome.find_element(by=By.CSS_SELECTOR,value='[value="Advanced Search"]').click()
+
+    subject = Select(chrome.find_element(by="id", value="subj_id"))
+    subject.select_by_visible_text("Computer Science")
+
