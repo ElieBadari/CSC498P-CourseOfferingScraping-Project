@@ -20,3 +20,5 @@ def getCourseOfferings(login_info):
     passlogin.send_keys(login_info["password"])
 
     chrome.find_element(by=By.CSS_SELECTOR,value='[type="submit"]').click()
+
+    chrome.get("https://banweb.lau.edu.lb/prod/bwskfcls.p_sel_crse_search")
