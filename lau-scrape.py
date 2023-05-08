@@ -31,3 +31,7 @@ def getCourseOfferings(login_info):
     subject = Select(chrome.find_element(by="id", value="subj_id"))
     subject.select_by_visible_text("Computer Science")
 
+    chrome.find_element(by=By.CSS_SELECTOR,value='[value="Section Search"]').click()
+    
+    offerings = chrome.page_source
+    return offerings
