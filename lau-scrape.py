@@ -22,3 +22,8 @@ def getCourseOfferings(login_info):
     chrome.find_element(by=By.CSS_SELECTOR,value='[type="submit"]').click()
 
     chrome.get("https://banweb.lau.edu.lb/prod/bwskfcls.p_sel_crse_search")
+    term = Select(chrome.find_element(by="id",value="term_input_id"))
+    term.select_by_visible_text("Fall 2023 (View only)")
+
+    chrome.find_element(by=By.CSS_SELECTOR,value='[value="Submit"]').click()
+    chrome.find_element(by=By.CSS_SELECTOR,value='[value="Advanced Search"]').click()
