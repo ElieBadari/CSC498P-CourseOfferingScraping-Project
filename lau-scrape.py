@@ -1,6 +1,9 @@
 from selenium import webdriver as wd
 from selenium.webdriver.common.by import By
+from bs4 import BeautifulSoup
 from getpass import getpass
+from selenium.webdriver.support.ui import Select
+
 
 def getLogin():
     login_info = {}
@@ -36,6 +39,15 @@ def getCourseOfferings(login_info):
     
     offerings = chrome.page_source
     return offerings
+
+def extractToCSV(offerings):
+    html = BeautifulSoup(offerings,"html.parser")
+    table = html.find("table",{"class":"datadisplaytable"})
+    rows = list()
+    for row in table.findAll("tr"):
+        rows.append(row)
+    
+    
 
 login_info = getLogin()
 course_offerings = getCourseOfferings(login_info)
